@@ -1,0 +1,96 @@
+<h1>Liste des voyages</h1>
+
+<div id="sidebar">
+    <ul>
+        <li><%= link_to 'Accueil',root_path %></li>
+        <li><%= link_to 'Utilisateurs',url_for(controller: 'users', action: 'index')%></li>
+        <li><%= link_to 'Trajets',root_path %></li>
+    </ul>
+</div>
+<div id="trips">
+<table>
+    <thead>
+    <tr>
+        <th>Utilisateur</th>
+        <th>Destination</th>
+        <th>Description</th>
+        <th>Date de Début</th>
+        <th>Date de Fin</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @trips.each do |trip| %>
+        <tr>
+        <td><%= trip.user.name %></td>
+        <td><%= trip.destination %></td>
+        <td><%= trip.description %></td>
+        <td><%= trip.start_date %></td>
+        <td><%= trip.end_date %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+</div>
+
+
+
+
+
+<style>
+    #sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 15%;
+        background-color: #569FC4;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    #sidebar li {
+        margin-bottom: 10px;
+    }
+
+    #sidebar a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+    }
+    body {
+    margin: 20px;
+    }
+
+    h1 {
+    text-align: center;
+    }
+
+    #trips {
+    margin-top: 20px;
+    }
+
+    table {
+        width: 80%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+</style>
